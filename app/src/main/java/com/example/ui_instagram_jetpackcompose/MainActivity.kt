@@ -16,7 +16,7 @@ class MainActivity : ComponentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContent {
-
+          DefaultPreview()
         }
     }
 }
@@ -26,6 +26,6 @@ class MainActivity : ComponentActivity() {
 @Composable
 fun DefaultPreview() {
     UiinstagramjetpackComposeTheme {
-
+        ProfileScreen()
     }
 }
