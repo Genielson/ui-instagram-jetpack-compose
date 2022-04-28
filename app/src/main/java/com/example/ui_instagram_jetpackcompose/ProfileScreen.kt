@@ -96,7 +96,40 @@ fun RoundedImage(image : Painter,modifier: Modifier = Modifier){
         modifier = modifier.padding(3.dp).border(width = 1.dp,
             shape = CircleShape,
             color = Color.LightGray)
-            .clip(CircleShape)
+            .clip(CircleShape).
+            aspectRatio(1f, matchHeightConstraintsFirst = true)
     )
+
+}
+
+@Composable
+fun StatSection(modifier: Modifier = Modifier){
+
+    Row(
+        modifier = modifier,
+        verticalAlignment = Alignment.CenterVertically,
+        horizontalArrangement = Arrangement.SpaceAround
+        ){
+
+
+
+        }
+
+}
+
+@Composable
+fun ProfileStat(numberText:String,text:String,modifier : Modifier = Modifier){
+
+    Column(
+        modifier = modifier,
+        horizontalAlignment = Alignment.CenterHorizontally,
+        verticalArrangement = Arrangement.Center
+    ){
+
+        Text(text = numberText, fontSize = 20.sp, fontWeight = FontWeight.Bold)
+        Spacer(modifier = Modifier.height(4.dp))
+        Text(text = text)
+
+    }
 
 }
