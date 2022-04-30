@@ -1,10 +1,12 @@
 package com.example.ui_instagram_jetpackcompose
 
+import android.view.RoundedCorner
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.background
 import androidx.compose.foundation.border
 import androidx.compose.foundation.layout.*
 import androidx.compose.foundation.shape.CircleShape
+import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material.Icon
 import androidx.compose.material.Text
 import androidx.compose.material.icons.Icons
@@ -15,6 +17,7 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.graphics.painter.Painter
+import androidx.compose.ui.graphics.vector.ImageVector
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.style.TextOverflow
@@ -29,7 +32,7 @@ fun ProfileScreen(){
         Spacer(modifier = Modifier.height(4.dp))
         ProfileSection()
         Spacer(modifier = Modifier.height(25.dp))
-        
+        ButtonSection(modifier = Modifier.fillMaxWidth())
     }
 
 }
@@ -138,6 +141,33 @@ fun ProfileStat(numberText:String,text:String,modifier : Modifier = Modifier){
         Text(text = text)
     }
 
+}
+
+@Composable
+fun ButtonSection(modifier: Modifier = Modifier){
+
+
+
+}
+
+@Composable
+fun ActionButton(modifier : Modifier = Modifier, text:String? = null,icon : ImageVector? = null){
+    Row(horizontalArrangement = Arrangement.Center,
+        verticalAlignment = Alignment.CenterVertically,
+        modifier = modifier.border(width = 1.dp,color = Color.LightGray,shape = RoundedCornerShape(5.dp))
+            .padding(6.dp)
+        ){
+
+        if(text != null){
+            Text(fontWeight = FontWeight.SemiBold,
+                fontSize = 14.sp,
+                text = text)
+        }
+
+        if(icon != null){
+            Icon(imageVector = icon, contentDescription = null,tint = Color.Black)
+        }
+    }
 }
 
 
