@@ -34,8 +34,15 @@ fun ProfileScreen(){
         ProfileSection()
         Spacer(modifier = Modifier.height(25.dp))
         ButtonSection(modifier = Modifier.fillMaxWidth())
-        
+        Spacer(Modifier.height(25.dp))
+
     }
+
+}
+
+@Composable
+fun HighlightSection(){
+
 
 }
 
@@ -150,32 +157,34 @@ fun ButtonSection(modifier: Modifier = Modifier){
 
     val minWidth = 95.dp
     val height = 30.dp
+    Row(horizontalArrangement = Arrangement.SpaceEvenly, modifier = modifier) {
 
-    ActionButton(
-        text = "Following",
-        icon = Icons.Default.KeyboardArrowDown,
-        modifier = Modifier
-            .defaultMinSize(minWidth = minWidth)
-            .height(height)
-    )
-    ActionButton(
-        text = "Message",
-        modifier = Modifier
-            .defaultMinSize(minWidth = minWidth)
-            .height(height)
-    )
-    ActionButton(
-        text = "Email",
-        modifier = Modifier
-            .defaultMinSize(minWidth = minWidth)
-            .height(height)
-    )
+        ActionButton(
+            text = "Following",
+            icon = Icons.Default.KeyboardArrowDown,
+            modifier = Modifier
+                .defaultMinSize(minWidth = minWidth)
+                .height(height)
+        )
+        ActionButton(
+            text = "Message",
+            modifier = Modifier
+                .defaultMinSize(minWidth = minWidth)
+                .height(height)
+        )
+        ActionButton(
+            text = "Email",
+            modifier = Modifier
+                .defaultMinSize(minWidth = minWidth)
+                .height(height)
+        )
 
-    ActionButton(
-        icon = Icons.Default.KeyboardArrowDown,
-        modifier = Modifier
-            .size(height)
-    )
+        ActionButton(
+            icon = Icons.Default.KeyboardArrowDown,
+            modifier = Modifier
+                .size(height)
+        )
+    }
 
 }
 
