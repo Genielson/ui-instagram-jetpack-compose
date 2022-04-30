@@ -5,6 +5,7 @@ import androidx.compose.foundation.Image
 import androidx.compose.foundation.background
 import androidx.compose.foundation.border
 import androidx.compose.foundation.layout.*
+import androidx.compose.foundation.lazy.LazyRow
 import androidx.compose.foundation.shape.CircleShape
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material.Icon
@@ -21,6 +22,7 @@ import androidx.compose.ui.graphics.painter.Painter
 import androidx.compose.ui.graphics.vector.ImageVector
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.text.font.FontWeight
+import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.text.style.TextOverflow
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
@@ -36,14 +38,60 @@ fun ProfileScreen(){
         ButtonSection(modifier = Modifier.fillMaxWidth())
         Spacer(Modifier.height(25.dp))
 
+        HighlightSection(
+            highlights = listOf(
+                ImageWithText(
+                    image = painterResource(id = R.drawable.youtube),
+                    text = "YouTube"
+                ),
+                ImageWithText(
+                    image = painterResource(id = R.drawable.qa),
+                    text = "Q&A"
+                ),
+                ImageWithText(
+                    image = painterResource(id = R.drawable.discord),
+                    text = "Discord"
+                ),
+                ImageWithText(
+                    image = painterResource(id = R.drawable.telegram),
+                    text = "Telegram"
+                ),
+            ),
+            modifier = Modifier
+                .fillMaxWidth()
+                .padding(horizontal = 20.dp)
+        )
     }
 
 }
 
 @Composable
-fun HighlightSection(){
+fun HighlightSection(
+    modifier: Modifier = Modifier,
+    highlights : List<ImageWithText>
+){
+    LazyRow(modifier = modifier){
+        items(highlights.size){
 
+            Column(horizontalAlignment = Alignment.CenterHorizontally,
+                  verticalArrangement = Arrangement.Center,
+                  modifier = Modifier.padding(end = 15.dp)
+                ){
 
+                  RoundedImage(
+                      image = highlights[it].image,
+                      modifier = Modifier.size(size = 70.dp)
+                      )
+
+                Text(
+                    text = highlights[it].text,
+                    overflow = TextOverflow.Ellipsis,
+                    textAlign = TextAlign.Center
+                )
+
+            }
+        }
+    }
 }
 
 @Composable
