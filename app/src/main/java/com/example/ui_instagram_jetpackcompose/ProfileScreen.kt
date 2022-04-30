@@ -27,7 +27,9 @@ fun ProfileScreen(){
     Column(modifier = Modifier.fillMaxSize()) {
         TopBar("genielson_leal", modifier = Modifier.padding(16.dp))
         Spacer(modifier = Modifier.height(4.dp))
-
+        ProfileSection()
+        Spacer(modifier = Modifier.height(25.dp))
+        
     }
 
 }
@@ -61,8 +63,6 @@ fun TopBar(name:String,
             tint = Color.Black
         )
 
-
-
     }
 
 }
@@ -80,8 +80,16 @@ fun ProfileSection(
                 .fillMaxWidth()
                 .padding(horizontal = 20.dp)
         ){
+            
+            RoundedImage(
+                image = painterResource(id = R.drawable.genielson),
+                modifier = modifier
+                    .size(100.dp)
+                    .weight(3f)
+            )
 
-
+            Spacer(modifier = Modifier.width(16.dp))
+            StatSection(modifier = Modifier.weight(7f))
         }
 
     }
@@ -89,15 +97,13 @@ fun ProfileSection(
 
 @Composable
 fun RoundedImage(image : Painter,modifier: Modifier = Modifier){
-
     Image(
         painter =  image,
         contentDescription = null,
-        modifier = modifier.padding(3.dp).border(width = 1.dp,
-            shape = CircleShape,
-            color = Color.LightGray)
-            .clip(CircleShape).
-            aspectRatio(1f, matchHeightConstraintsFirst = true)
+        modifier = modifier
+            .padding(1.dp)
+            .clip(CircleShape)
+            .aspectRatio(1f, matchHeightConstraintsFirst = true)
     )
 
 }
@@ -111,7 +117,9 @@ fun StatSection(modifier: Modifier = Modifier){
         horizontalArrangement = Arrangement.SpaceAround
         ){
 
-
+            ProfileStat(numberText = "601", text = "Posts", modifier = Modifier.padding(1.dp))
+            ProfileStat(numberText = "100K", text = "Followers", modifier = Modifier.padding(1.dp))
+            ProfileStat(numberText = "72", text = "Following", modifier = Modifier.padding(1.dp))
 
         }
 
@@ -119,17 +127,17 @@ fun StatSection(modifier: Modifier = Modifier){
 
 @Composable
 fun ProfileStat(numberText:String,text:String,modifier : Modifier = Modifier){
-
     Column(
         modifier = modifier,
         horizontalAlignment = Alignment.CenterHorizontally,
         verticalArrangement = Arrangement.Center
     ){
-
-        Text(text = numberText, fontSize = 20.sp, fontWeight = FontWeight.Bold)
+        Text(text = numberText, fontSize = 20.sp,
+            fontWeight = FontWeight.Bold)
         Spacer(modifier = Modifier.height(4.dp))
         Text(text = text)
-
     }
 
 }
+
+
