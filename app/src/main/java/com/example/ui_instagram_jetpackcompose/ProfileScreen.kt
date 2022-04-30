@@ -11,6 +11,7 @@ import androidx.compose.material.Icon
 import androidx.compose.material.Text
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.ArrowBack
+import androidx.compose.material.icons.filled.KeyboardArrowDown
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
@@ -33,6 +34,7 @@ fun ProfileScreen(){
         ProfileSection()
         Spacer(modifier = Modifier.height(25.dp))
         ButtonSection(modifier = Modifier.fillMaxWidth())
+        
     }
 
 }
@@ -146,7 +148,34 @@ fun ProfileStat(numberText:String,text:String,modifier : Modifier = Modifier){
 @Composable
 fun ButtonSection(modifier: Modifier = Modifier){
 
+    val minWidth = 95.dp
+    val height = 30.dp
 
+    ActionButton(
+        text = "Following",
+        icon = Icons.Default.KeyboardArrowDown,
+        modifier = Modifier
+            .defaultMinSize(minWidth = minWidth)
+            .height(height)
+    )
+    ActionButton(
+        text = "Message",
+        modifier = Modifier
+            .defaultMinSize(minWidth = minWidth)
+            .height(height)
+    )
+    ActionButton(
+        text = "Email",
+        modifier = Modifier
+            .defaultMinSize(minWidth = minWidth)
+            .height(height)
+    )
+
+    ActionButton(
+        icon = Icons.Default.KeyboardArrowDown,
+        modifier = Modifier
+            .size(height)
+    )
 
 }
 
@@ -154,7 +183,8 @@ fun ButtonSection(modifier: Modifier = Modifier){
 fun ActionButton(modifier : Modifier = Modifier, text:String? = null,icon : ImageVector? = null){
     Row(horizontalArrangement = Arrangement.Center,
         verticalAlignment = Alignment.CenterVertically,
-        modifier = modifier.border(width = 1.dp,color = Color.LightGray,shape = RoundedCornerShape(5.dp))
+        modifier = modifier
+            .border(width = 1.dp, color = Color.LightGray, shape = RoundedCornerShape(5.dp))
             .padding(6.dp)
         ){
 
