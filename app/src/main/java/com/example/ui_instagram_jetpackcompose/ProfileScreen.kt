@@ -53,10 +53,6 @@ fun ProfileScreen(){
                     text = "YouTube"
                 ),
                 ImageWithText(
-                    image = painterResource(id = R.drawable.qa),
-                    text = "Q&A"
-                ),
-                ImageWithText(
                     image = painterResource(id = R.drawable.discord),
                     text = "Discord"
                 ),
@@ -324,9 +320,9 @@ fun StatSection(modifier: Modifier = Modifier){
         horizontalArrangement = Arrangement.SpaceAround
         ){
 
-            ProfileStat(numberText = "601", text = "Posts", modifier = Modifier.padding(1.dp))
-            ProfileStat(numberText = "100K", text = "Followers", modifier = Modifier.padding(1.dp))
-            ProfileStat(numberText = "72", text = "Following", modifier = Modifier.padding(1.dp))
+            ProfileStat(numberText = "200", text = "Posts", modifier = Modifier.padding(1.dp))
+            ProfileStat(numberText = "10K", text = "Followers", modifier = Modifier.padding(1.dp))
+            ProfileStat(numberText = "1K", text = "Following", modifier = Modifier.padding(1.dp))
 
         }
 
