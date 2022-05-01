@@ -61,8 +61,18 @@ fun ProfileScreen(){
                 .fillMaxWidth()
                 .padding(horizontal = 20.dp)
         )
+
+        Spacer(modifier = Modifier.height(10.dp))
+
+        PostTabView()
+
     }
 
+}
+
+@Composable
+fun PostTabView(){
+    
 }
 
 @Composable
@@ -235,6 +245,8 @@ fun ButtonSection(modifier: Modifier = Modifier){
     }
 
 }
+
+
 
 @Composable
 fun ActionButton(modifier : Modifier = Modifier, text:String? = null,icon : ImageVector? = null){
